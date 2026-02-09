@@ -1,8 +1,28 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --font-poppins: "Poppins", sans-serif;
+}
+
+body {
+  font-family: var(--font-poppins);
+}
+
+/* Custom scrollbar untuk testimonials section di mobile */
+@media (max-width: 768px) {
+  .overflow-x-auto::-webkit-scrollbar {
+    height: 4px;
+  }
+
+  .overflow-x-auto::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+  }
+
+  .overflow-x-auto::-webkit-scrollbar-thumb {
+    background: #0d5cd7;
+    border-radius: 10px;
+  }
 }
 
 @theme inline {
