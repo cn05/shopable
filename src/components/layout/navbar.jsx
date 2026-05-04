@@ -51,7 +51,8 @@ export default function Navbar() {
   return (
     <header
       className={cn(
-        "sticky top-0 z-40 relative px-4 pt-5 md:pt-7.5",
+        "sticky top-0 z-40 relative bg-transparent px-4 pt-5 md:pt-7.5",
+        isScrolled ? "md:bg-transparent" : "md:bg-white",
       )}
     >
       <div

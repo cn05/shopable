@@ -7,7 +7,8 @@ import AddToCartButton from "@/components/cart/add-to-cart-button";
 import ProductCard from "@/components/product/product-card";
 
 export async function generateMetadata({ params }) {
-  const slug = params?.slug ?? "";
+  const resolvedParams = await params;
+  const slug = resolvedParams?.slug ?? "";
   const brand = brands.find((item) => item.slug === slug) ?? null;
 
   if (!brand) {

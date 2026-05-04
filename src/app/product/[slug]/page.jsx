@@ -6,7 +6,8 @@ import { formatRupiah } from "@/lib/utils";
 import ProductPurchasePanel from "@/components/product/product-purchase-panel";
 
 export async function generateMetadata({ params }) {
-  const slug = params?.slug ?? "";
+  const resolvedParams = await params;
+  const slug = resolvedParams?.slug ?? "";
   const product = getProductBySlug(slug);
 
   if (!product) {

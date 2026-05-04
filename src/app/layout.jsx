@@ -1,8 +1,10 @@
 import { Poppins } from "next/font/google";
+import { Suspense } from "react";
 import "./globals.css";
 import CartProvider from "@/components/cart/cart-provider";
 import Navbar from "@/components/layout/navbar";
 import Footer from "@/components/footer";
+import ScrollRestoration from "@/components/scroll-restoration";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -38,6 +40,9 @@ export default function RootLayout({ children }) {
     <html lang="id" className={`${poppins.variable} antialiased`}>
       <body className={poppins.className}>
         <CartProvider>
+          <Suspense fallback={null}>
+            <ScrollRestoration />
+          </Suspense>
           <Navbar />
           {children}
           <Footer />
