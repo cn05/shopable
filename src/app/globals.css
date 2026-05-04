@@ -1,11 +1,81 @@
 @import "tailwindcss";
 
 :root {
-  --font-poppins: "Poppins", sans-serif;
+  --background: #ffffff;
+  --foreground: #111827;
+  --brand: #0d5cd7;
+  --brand-hover: #0b4db5;
+  --brand-deep: #0a3f8f;
+  --accent: #ffc736;
+  --muted: #eff3fa;
+  --border: #e5e5e5;
+  --text-muted: #616369;
+  --text-subtle: #6a7789;
 }
 
 body {
-  font-family: var(--font-poppins);
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-poppins, ui-sans-serif, system-ui, sans-serif);
+}
+
+:where(a, button, input, select, textarea):focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes drawer-in-right {
+  from {
+    transform: translateX(16px);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes drawer-in-bottom {
+  from {
+    transform: translateY(16px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 180ms ease-out both;
+}
+
+.animate-fade-up {
+  animation: fade-up 220ms ease-out both;
+}
+
+.animate-drawer-right {
+  animation: drawer-in-right 200ms ease-out both;
+}
+
+.animate-drawer-bottom {
+  animation: drawer-in-bottom 200ms ease-out both;
 }
 
 /* Custom scrollbar untuk testimonials section di mobile */
@@ -28,8 +98,17 @@ body {
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-brand: var(--brand);
+  --color-brandHover: var(--brand-hover);
+  --color-brandDeep: var(--brand-deep);
+  --color-accent: var(--accent);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
+  --color-textMuted: var(--text-muted);
+  --color-textSubtle: var(--text-subtle);
+  --font-sans: var(--font-poppins, ui-sans-serif, system-ui, sans-serif);
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -37,10 +116,4 @@ body {
     --background: #0a0a0a;
     --foreground: #ededed;
   }
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
 }
